@@ -1,6 +1,6 @@
 # Associations_Inference
 
-This repository proposes a new method to infer relevant associations within a set of features. It infers relevant predictors for several regression problems combining the Boruta method [1] and the Shapley values for feature importance [2].   
+This repository proposes a new method to infer relevant associations within a set of features. It infers relevant predictors for several regression problems combining the Boruta method [1] and the Shapley values for feature importance [2]. Please refer to [BorutaShap.pdf](BorutaShap.pdf) for a brief description of this method. 
 
 This repository also proposes a python implementation for the TIGRESS method which solves the same kind of problems.
 
