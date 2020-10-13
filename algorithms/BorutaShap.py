@@ -177,6 +177,10 @@ class BoShapNet(object):
         
     Parameters
     ----------
+    
+    regressor: ensemble regression method
+        for example sklearn.ensemble.RandomForestRegressor()
+        
     responses : list of strings
         names of the response variables
         
@@ -185,16 +189,14 @@ class BoShapNet(object):
         
     covariates: list of strings, optional
         names of potential covariates. Default is []
-        
-    regressor: ensemble regression method
-        for example sklearn.ensemble.RandomForestRegressor()
-    
-    verbose: int, optional
-        control the verbosity: the higher, the more messages. Default is 1.
+            
+    n_jobs : int, optional
+        number of jobs to run in parallel. -1 means using all processors.
+        See the joblib package documentation for more explanations. Default is 1.
     
     Attributes
     ----------
-    selections_: DataFrame with binary values, shape (n_responses , n_predictors + n_covariates)
+    selections_: DataFrame with binary values, shape (n_responses , n_predictors)
         selections_[response i , predictor j ]=1 indicates that the predictor j has been selected
         for the response i
             
@@ -207,12 +209,10 @@ class BoShapNet(object):
     """
     
     def __init__(self , regressor , responses , predictors , covariates = [] , n_jobs = 1):
+        self.regressor = regressor
         self.responses = responses
         self.predictors = predictors
         self.covariates = covariates
-        
-        self.regressor = regressor
-
         self.n_jobs = n_jobs
         
         self.selections_ = None
@@ -251,8 +251,8 @@ class BoShapNet(object):
                                                   self.covariates , 
                                                   feat_selector)
                                  for resp in self.responses)
-        
-        self.selections_ = (pd.concat(selection , axis=1).T)[self.responses] 
+         
+        self.selections_ = (pd.concat(selection , axis=1).T)[self.predictors]
         
         if not (validation_regressor is None):
             self.summary_ = self.selections_.apply( _score 

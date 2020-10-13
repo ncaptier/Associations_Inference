@@ -7,6 +7,8 @@ from sklearn.linear_model import lasso_path , lars_path , enet_path
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
+""" This code proposes a python implementation of the TIGRESS method developped by Haury et al. in 2012 for inferring
+gene regulatory networks (https://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-6-145)."""
 
 def _bootstrap_generator(R, bootstrap , X , y):
     """ Yields R bootstrap samples from X and y
@@ -251,10 +253,10 @@ class TIGRESS(object):
         control the verbosity: the higher, the more messages. Default is 0.
     
     R : int, optional
-        Default is 1000
+        Default is 4000
     
     L : int, optional
-        length of the regularization path. Default is 20.
+        length of the regularization path. Default is 4.
         
     func : string, optional
         function for computing the regularization path. Default is 'lars'.
@@ -274,12 +276,16 @@ class TIGRESS(object):
     Attributes
     ---------
     
-    scores_ : DataFrame, shape (n_responses , n_predictors + n_covariates)
+    scores_ : DataFrame, shape (n_responses , n_predictors)
+    
+    Note
+    -------
+    The default values of the parameters are inspired by the original article descirbing TIGRESS method.
     
     """
     
     def __init__(self , responses , predictors , covariates = [] , n_jobs = -1 , verbose = 0
-                 , R = 1000 , L = 20 , func = 'lars', scoring = 'area' , alpha = 0.4 
+                 , R = 4000 , L = 4 , func = 'lars', scoring = 'area' , alpha = 0.4 
                  , resampling = 'subsamples' , bootstrap = 1):
         self.responses = responses
         self.predictors = predictors
@@ -332,7 +338,7 @@ class TIGRESS(object):
                                                  , bootstrap = self.bootstrap)
                     stable.fit(X.values , y.values)
                     temp.append(pd.Series(stable.scores_ , index = X.columns , name = resp))
-        self.scores_ = (pd.concat(temp , axis = 1).T)[self.responses] 
+        self.scores_ = (pd.concat(temp , axis = 1).T)[self.predictors] 
         return 
     
     
