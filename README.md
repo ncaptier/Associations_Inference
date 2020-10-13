@@ -6,11 +6,12 @@ This repository also proposes a python implementation for the TIGRESS method whi
 
 ## Experiments
 
-In order to illustrate our method, we provide a jupyter notebook which applies it to the DREAM4 In silico size 100 multifactorial subchallenge. We compare the results with state-of-the-art methods such as TIGRESS [3] and GENIE3 [4] **(ongoing building)**.
+In order to illustrate our method, we provide a jupyter notebook which applies it to the DREAM4 In silico size 100 multifactorial subchallenge. We compare the results with state-of-the-art methods such as TIGRESS [3] and GENIE3 [4].
+* [Comparison of Boruta SHap, GENIE3 and TIGRESS for the DREAM4 challenge](DREAM4_challenge.ipynb)
 
 ## Data 
 
-The training data sets and the gold standard data sets for the DREAM4 challenge can be downloaded [here](http://dreamchallenges.org/project/dream4-in-silico-network-challenge/).
+The training data sets and the gold standard data sets for the DREAM4 challenge were downloaded [here](http://dreamchallenges.org/project/dream4-in-silico-network-challenge/). You can find them in the folder [Size 100 multifactorial](Size 100 multifactorial).
 
 ## Requirements
 
