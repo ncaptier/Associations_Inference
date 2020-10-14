@@ -11,7 +11,7 @@ In order to illustrate our method, we provide a jupyter notebook which applies i
 
 ## Data 
 
-The training data sets and the gold standard data sets for the DREAM4 challenge were downloaded [here](http://dreamchallenges.org/project/dream4-in-silico-network-challenge/). You can find them in the folder [Size 100 multifactorial](Size 100 multifactorial).
+The training data sets and the gold standard data sets for the DREAM4 challenge were downloaded [here](http://dreamchallenges.org/project/dream4-in-silico-network-challenge/). You can find them in the folder [Size 100 multifactorial](https://github.com/ncaptier/Associations_Inference/tree/master/Size%20100%20multifactorial).
 
 ## Requirements
 
