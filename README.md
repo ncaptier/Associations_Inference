@@ -27,7 +27,7 @@ To run this algorithm as well as the jupyter notebook, one will need the followi
 
 ## Example
 
-'''python
+```python
 from sklearn.ensemble import RandomForestRegressor
 from algorithms.BorutaShap import Shap , BoShapNet
 
@@ -38,7 +38,7 @@ BoShap = BoShapNet(regressor = regressor , responses = list(df.columns) , predic
 Boshap.fit(df)
 
 print(Boshap.selections_)
-'''
+```
 
 ## Acknowledgements
 
