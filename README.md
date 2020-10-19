@@ -25,9 +25,9 @@ To run this algorithm as well as the jupyter notebook, one will need the followi
 * scikit-learn
 * [shap](https://github.com/slundberg/shap)
 
-## Example
+## Examples
 
-### Boruta Shap method
+#### Boruta Shap method
 
 ```python
 from sklearn.ensemble import RandomForestRegressor
@@ -42,7 +42,7 @@ Boshap.fit(df)
 print(Boshap.selections_)
 ```
 
-### TIGRESS method
+#### TIGRESS method
 
 ```python
 from algorithms.TIGRESS import TIGRESS
