@@ -30,6 +30,7 @@ To run this algorithm as well as the jupyter notebook, one will need the followi
 #### Boruta Shap method
 
 ```python
+import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from algorithms.BorutaShap import Shap , BoShapNet
 
@@ -45,6 +46,7 @@ print(Boshap.selections_)
 #### TIGRESS method
 
 ```python
+import pandas as pd
 from algorithms.TIGRESS import TIGRESS
 
 df = pd.read_csv('Size 100 multifactorial\DREAM4 training data\insilico_size100_1_multifactorial.tsv' , sep = '\t')
