@@ -27,6 +27,8 @@ To run this algorithm as well as the jupyter notebook, one will need the followi
 
 ## Example
 
+### Boruta Shap method
+
 ```python
 from sklearn.ensemble import RandomForestRegressor
 from algorithms.BorutaShap import Shap , BoShapNet
@@ -40,6 +42,18 @@ Boshap.fit(df)
 print(Boshap.selections_)
 ```
 
+### TIGRESS method
+
+```python
+from algorithms.TIGRESS import TIGRESS
+
+df = pd.read_csv('Size 100 multifactorial\DREAM4 training data\insilico_size100_1_multifactorial.tsv' , sep = '\t')
+
+T = TIGRESS(responses = list(df.columns) , predictors = list(df.columns))
+T.fit(df , normalize = True)
+
+print(T.scores_)
+```
 ## Acknowledgements
 
 This package was created as a part of Master internship by Nicolas Captier in the [Computational Systems Biology of Cancer group](http://sysbio.curie.fr) of Institut Curie.
