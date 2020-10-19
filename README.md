@@ -25,6 +25,21 @@ To run this algorithm as well as the jupyter notebook, one will need the followi
 * scikit-learn
 * [shap](https://github.com/slundberg/shap)
 
+## Example
+
+'''python
+from sklearn.ensemble import RandomForestRegressor
+from algorithms.BorutaShap import Shap , BoShapNet
+
+df = pd.read_csv('Size 100 multifactorial\DREAM4 training data\insilico_size100_1_multifactorial.tsv' , sep = '\t')
+regressor = Shap(RandomForestRegressor())
+
+BoShap = BoShapNet(regressor = regressor , responses = list(df.columns) , predictors = list(df.columns) , n_jobs = -1)
+Boshap.fit(df)
+
+print(Boshap.selections_)
+'''
+
 ## Acknowledgements
 
 This package was created as a part of Master internship by Nicolas Captier in the [Computational Systems Biology of Cancer group](http://sysbio.curie.fr) of Institut Curie.
